@@ -42,8 +42,7 @@ export default [
 		},
 		plugins: [
 			resolve(), 
-			commonjs(),
-			uglify()
+			commonjs()
 		]
 	},
 	{
