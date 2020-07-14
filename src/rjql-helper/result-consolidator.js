@@ -29,6 +29,9 @@ module.exports.consolidateResults = function(results, _response) {
 
     function __compare(r1, r2) {
         var result = getEmptyResult();
+        if(!r1.next) {
+            r1.next = '&&';
+        }
         if (r1.next == '&&') {
             result.passed = r1.passed && r2.passed;
             result.verb = r1.passed ? r2.verb : r1.verb;
