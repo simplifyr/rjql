@@ -1,7 +1,7 @@
 module.exports.evaluate = function(result, operator, targetValue) {
     targetValue = toTarget(targetValue);
     if (operator === '=') {
-        return result == targetValue;
+        return String(targetValue) === String(result);
     } else if (operator === '<>') {
         return result != targetValue;
     } else if (operator === '~') {
