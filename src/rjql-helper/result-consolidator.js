@@ -68,10 +68,13 @@ module.exports.consolidateResults = function(results, _response) {
                     end: -1
                 }
             }
+            if(typeof _response === 'string') {
+                _response = JSON.parse(_response);
+            }
             var match = JSON.stringify(t, null, ' ').replace(/\n\s+/g, '\n');
             var rs = JSON.stringify(_response, null, ' ').replace(/\n\s+/g, '\n');
             var index = rs.indexOf(match);
-            var start = rs.substr(0, index).split('\n').length;
+            var start = rs.substr(0, index).split('\n').length - 1;
             var end = start - 1 + match.split('\n').length;
             return { start, end }
         }
