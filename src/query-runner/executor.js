@@ -49,13 +49,13 @@ function executeTests(response, tests) {
 function executeTest(json, test, _result) {
     test.query  = test.query.replace(/(\[\])?:$/, '');
     if(test.qType === 'E') {
-        if('length' in json && 'splice' in json) {
+        /*if('length' in json && 'splice' in json) {
             for(let o of json) {
                 executeTest(o, test, _result);
             }
-        } else {
+        } else {*/
             _evaluateExp(test, json, _result);
-        }
+        //}
     } else {
         var target = Util.traverse(json, test.query.split('>'));
         if(test.qType === 'N') {
